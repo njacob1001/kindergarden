@@ -1,0 +1,167 @@
+.hamburger:focus{
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  background-color: var(--Neutral-color);
+}
+
+.Header{
+  &-container {
+    //@include test();
+    position: relative;
+    z-index: 999;
+    background-color: var(--First-color);
+    height: var(--Header-height);
+    width: 100vw;
+    //max-height: var(--Header-height);
+    font-family: 'Libre Franklin';
+    overflow: hidden;
+    @media screen and(min-width: 850px){
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+    }
+  }
+  &-wrapper {
+    //@include test;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1600px;
+    height: var(--Header-height);
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--Neutral-color);//var(--First-color);
+    @media screen and(min-width: 850px){
+      width: 85vw;
+      padding-right: 50px;
+      background-color: transparent;
+    }
+  }
+  &-logo {
+    //@include test();
+    position: relative;
+    height: 100%;
+    width: 150px;
+    display: inline-block;
+    background-image: url("../../assets/img/grimm-logo.png");
+    background-position: 90% 60%;
+    background-repeat: no-repeat;
+    z-index: 998;
+    background-size: var(--logo-size);
+    @media screen and (min-width: 850px){
+      //margin-left: 100px;
+      //@include test();
+      //background-position: 90% 0%;
+      margin-top: 10px;
+      margin-left: 25px;
+      width: 170px;
+    }
+  }
+  &-button {
+    //@include test(red,blue);
+    position: relative;
+    height: var(--Header-height);
+    width: var(--Header-height);
+    display: flex;
+    z-index: 999;
+    justify-content: center;
+    align-content: center;
+    -webkit-tap-highlight-color: transparent;
+    //box-sizing: initial;
+    &:active{
+      background: none;
+    }
+    @media screen and(min-width: 850px){
+      display: none;
+    }
+    @media screen and (min-width: 64em){
+      display: none;
+    }
+  }
+  &-panel{
+    //@include test();
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 600;
+    padding-top: var(--Header-height);
+    transform: translate3d(0,-100%,0);
+    transition: transform .35s var(--timing);
+    &.is-active {
+      transform: translate3d(0,0,0);
+    }
+    @media screen and(min-width: 850px){
+      transform: translate3d(0,0,0);
+      position: relative;
+      width: auto;
+      height: var(--Header-height);
+      padding-top: 0px;
+      //margin-right: 100px;
+    }
+  }
+  &-links {
+    //@include test(blue,red);
+    background-color: var(--First-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    @media screen and (min-width: 850px) {
+      flex-direction: row;
+      align-items: flex-end;
+      background-color: transparent;
+    }
+
+  }
+  &-item {
+    //@include test;
+    width: 100%;
+    padding: 2.3vh;
+    transform: translate3d(0,-100%,0);
+    opacity: 0;
+    @media screen and (min-width: 850px){
+      //transition: none;
+      opacity: 1;
+      transform: translate3d(0,0,0);
+      flex-basis: 0;
+      flex-grow: 1;
+      margin-bottom: 10px;
+    }
+
+    &>a{
+      position: relative;
+      font-size: var(--t1-size);
+      color: var(--Neutral-color);
+      text-decoration: none;
+      @media screen and(min-width: 850px){
+        font-size: var(--base-size);
+        font-weight: 600;
+        white-space: nowrap;
+        padding-bottom: 15px;
+      }
+      &:hover {
+        @media screen and (min-width: 850px){
+          //@include test();
+          color: var(--Third-color);
+        }
+      }
+    }
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}){
+        transition: transform,opacity 0.15s,0.6s var(--timing) $i*0.1s;
+      }
+      .Header-panel.is-active &:nth-child(#{$i}) {
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+    }
+  }
+}

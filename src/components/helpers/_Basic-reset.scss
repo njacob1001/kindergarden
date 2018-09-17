@@ -1,0 +1,46 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --Neutral-color: #EDEDED;
+  --First-color: #463CFF;
+  --First-color-light: #896aff;
+  --First-color-dark: #000cca;
+  --Second-color: #FF7F34;
+  --Third-color: #59CC42;
+  --t1-size: 1.999rem;
+  --t2-size: 1.414rem;
+  --base-size: 0.85rem;
+  --s1-size: 0.707rem;
+  --s2-size: 0.5rem;
+  --timing: cubic-bezier(0.23, 1, 0.32, 1);
+  --timing-fun: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --logo-size: 130%;
+
+  --Header-height: 4rem;
+  @media screen and(min-width: 850px){
+    --logo-size: 100%;
+    --Header-height: 6rem;
+    --base-size: 1rem;
+
+  }
+  @media screen and(min-width: 64em) {
+    --Header-height: 7rem;
+    //--logo-size: 50%;
+  }
+}
+
+body {
+  font-size: 100%;
+  font-family: 'Libre Franklin';
+}
+
+@mixin test($color1: #858585, $color2: black) {
+  background-color: $color1;
+  border: solid 2px $color2;
+}
