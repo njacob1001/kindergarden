@@ -7,30 +7,30 @@
 }
 
 :root {
-  --Neutral-color: #EDEDED;
-  --First-color: #463CFF;
-  --First-color-light: #896aff;
-  --First-color-dark: #000cca;
-  --Second-color: #FF7F34;
-  --Third-color: #59CC42;
-  --t1-size: 1.999rem;
-  --t2-size: 1.414rem;
+  --default-color: #EDEDED;
+  --first-color: #463CFF;
+  --first-color-light: #896aff;
+  --first-color-dark: #362ec4;
+  --second-color: #FF7F34;
+  --third-color: #59CC42;
+  --t1: 1.999rem;
+  --t2: 1.414rem;
   --base-size: 0.85rem;
-  --s1-size: 0.707rem;
-  --s2-size: 0.5rem;
-  --timing: cubic-bezier(0.23, 1, 0.32, 1);
-  --timing-fun: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --s1: 0.707rem;
+  --s2: 0.5rem;
+  --timing-func-one: cubic-bezier(0.23, 1, 0.32, 1);
+  --timing-fun-two: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --logo-size: 130%;
 
-  --Header-height: 4rem;
+  --header-height: 4rem;
   @media screen and(min-width: 850px){
     --logo-size: 100%;
-    --Header-height: 6rem;
+    --header-height: 6rem;
     --base-size: 1rem;
 
   }
   @media screen and(min-width: 64em) {
-    --Header-height: 7rem;
+    --header-height: 7rem;
     //--logo-size: 50%;
   }
 }

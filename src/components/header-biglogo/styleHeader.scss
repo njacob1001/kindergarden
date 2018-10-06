@@ -5,24 +5,23 @@
 }
 
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-  background-color: var(--Neutral-color);
+  background-color: var(--default-color);
 }
 
 .Header{
   &-container {
     //@include test();
-    position: relative;
-    z-index: 999;
-    background-color: var(--First-color);
-    height: var(--Header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 601;
+    background-color: var(--first-color);
+    height: var(--header-height);
     width: 100vw;
-    //max-height: var(--Header-height);
+    //max-height: var(--header-height);
     font-family: 'Libre Franklin';
     overflow: hidden;
     @media screen and(min-width: 850px){
-      position: absolute;
-      top: 0;
-      left: 0;
       background-color: transparent;
     }
   }
@@ -31,10 +30,10 @@
     margin: 0 auto;
     width: 100%;
     max-width: 1600px;
-    height: var(--Header-height);
+    height: var(--header-height);
     display: flex;
     justify-content: space-between;
-    background-color: var(--Neutral-color);//var(--First-color);
+    background-color: var(--default-color);//var(--first-color);
     @media screen and(min-width: 850px){
       width: 85vw;
       padding-right: 50px;
@@ -64,8 +63,8 @@
   &-button {
     //@include test(red,blue);
     position: relative;
-    height: var(--Header-height);
-    width: var(--Header-height);
+    height: var(--header-height);
+    width: var(--header-height);
     display: flex;
     z-index: 999;
     justify-content: center;
@@ -90,9 +89,9 @@
     width: 100vw;
     height: 100vh;
     z-index: 600;
-    padding-top: var(--Header-height);
+    padding-top: var(--header-height);
     transform: translate3d(0,-100%,0);
-    transition: transform .35s var(--timing);
+    transition: transform .35s var(--timing-func-one);
     &.is-active {
       transform: translate3d(0,0,0);
     }
@@ -100,14 +99,14 @@
       transform: translate3d(0,0,0);
       position: relative;
       width: auto;
-      height: var(--Header-height);
+      height: var(--header-height);
       padding-top: 0px;
       //margin-right: 100px;
     }
   }
   &-links {
     //@include test(blue,red);
-    background-color: var(--First-color);
+    background-color: var(--default-color);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -134,29 +133,41 @@
       flex-basis: 0;
       flex-grow: 1;
       margin-bottom: 10px;
-    }
+      border-bottom: solid var(--third-color) 3px;
+      border-bottom-style: solid;
+      border-bottom-width: 3px;
+      border-bottom-color: rgba(0,0,0,0);
 
+    }
+    &:hover {
+      color: var(--second-color);
+      @media screen and (min-width: 850px){
+        color: var(--third-color);
+        border-bottom-color: var(--third-color);
+      }
+    }
     &>a{
       position: relative;
-      font-size: var(--t1-size);
-      color: var(--Neutral-color);
+      font-size: var(--t1);
+      font-weight: 600;
+      text-transform: lowercase;
+      color: black;
       text-decoration: none;
+
       @media screen and(min-width: 850px){
+        color: var(--default-color);
         font-size: var(--base-size);
         font-weight: 600;
         white-space: nowrap;
         padding-bottom: 15px;
       }
-      &:hover {
-        @media screen and (min-width: 850px){
-          //@include test();
-          color: var(--Third-color);
-        }
-      }
     }
     @for $i from 1 through 5 {
       &:nth-child(#{$i}){
-        transition: transform,opacity 0.15s,0.6s var(--timing) $i*0.1s;
+        transition: transform,opacity 0.15s,0.6s var(--timing-func-one) $i*0.1s;
+        @media screen and (min-width: 850px){
+          transition: border-bottom-color .3s ease-in-out;
+        }
       }
       .Header-panel.is-active &:nth-child(#{$i}) {
         transform: translate3d(0,0,0);

@@ -1,0 +1,11 @@
+.Infotab {
+  &-container {
+    width: 100vw;
+    max-width: 1600px;
+    min-width: 300px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(8);
+    grid-auto-rows: repeat(2)
+  }
+}
