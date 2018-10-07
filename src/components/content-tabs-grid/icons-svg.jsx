@@ -5,7 +5,7 @@ import img2 from '../../assets/img/danzas.jpg';
 import img3 from '../../assets/img/arte-y-creatividad.jpg';
 import img4 from '../../assets/img/biblioteca.jpg';
 import img5 from '../../assets/img/comedor.jpg';
-import img6 from '../../assets/img/transporte.jpg';
+import img6 from '../../assets/img/transport.jpg';
 
 const size = '50px';
 

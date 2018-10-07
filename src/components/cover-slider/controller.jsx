@@ -1,24 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import SLIDER_ACTIONS from './actionType';
+import data from './data';
+import './controller.scss';
 
-class SliderController extends Component {
-  render() {
-    const pagItems = [];
-    const { slider, pags, changeSlider } = this.props;
-     for (let j = 0; j <= pags; j++) {
-       pagItems.push(<div onClick={() => changeSlider(j)} key={j + 698} className={`Slider-pagination-item ${this.props.slider === j && 'is-active'}`}></div>);
-     }
-    return (
-      <React.Fragment>
-        <div onClick={() => changeSlider(slider > 0 ? slider - 1 : pags)} className="Slider-action goLeft"><IoIosArrowBack /></div>
-        <div className="Slider-pagination">{pagItems}</div>
-        <div onClick={() => changeSlider(slider < pags ? slider + 1 : 0)} className="Slider-action goRight"><IoIosArrowForward /></div>
-      </React.Fragment>
-    );
-  }
-}
+const pags = data.length;
+const SliderController = ({ slider, changeSlider }) => (
+  <div className="Controller-slider">
+    <div
+      onClick={() => changeSlider(slider > 0 ? slider - 1 : pags - 1)}
+      className="Controller-action goLeft"
+    ><IoIosArrowBack /></div>
+    <div className="Controller-pagination">{
+      data.map((item, index) =>
+        <div
+          onClick={() => changeSlider(index)}
+          key={item.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '')}
+          className={`Controller-pagination-item ${slider === index && 'is-active'}`}
+        ></div>)
+    }</div>
+    <div
+      onClick={() => changeSlider(slider < pags - 1 ? slider + 1 : 0)}
+      className="Controller-action goRight"
+    ><IoIosArrowForward /></div>
+  </div>
+
+);
 
 export default connect(({ reducerSlider }) => ({
   slider: reducerSlider.slider

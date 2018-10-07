@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './styleHeader.scss';
-
-const DEFAULT_ITEMS = [
-  { name: 'inicio', url: '#root' },
-  { name: 'noticias', url: '#root' },
-  { name: 'guía padres', url: '#root' },
-  { name: 'galería', url: '#root' },
-  { name: 'contacto', url: '#root' }
-];
+import data from './data';
 
 class HeaderBigLogo extends Component {
   constructor() {
@@ -33,7 +26,7 @@ class HeaderBigLogo extends Component {
   }
 
   render() {
-    const items = this.props.items || DEFAULT_ITEMS;
+    const items = this.props.items || data;
     return (
       <div className="Header-container">
         <nav className="Header-wrapper">

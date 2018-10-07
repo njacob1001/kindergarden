@@ -8,8 +8,7 @@ const urlsToCache = [
   './script.js',
   './sw.js',
   './style.css',
-  './favicon.ico',
-  './assets/img/jacob_logo'
+  './favicon.ico'
 ];
 
 self.addEventListener('install', e => {

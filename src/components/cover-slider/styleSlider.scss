@@ -5,11 +5,6 @@
     width: 100%;
     height: 280px;
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0px;
-    z-index: 10;
     margin-top: var(--header-height);
     @media screen and(min-width: 850px){
       height: 550px;
@@ -22,61 +17,14 @@
     left: 0;
     width: 100%;
     height: 100%;
+    pointer-events: none;
     background: rgba(10, 9, 26, 0.65);
     z-index: -1;
   }
-  &-action {
-    //@include test();
-    width: 60px;
-    height: 100%;
-    display: flex;
-    font-size: 3rem;
-    color: var(--default-color);
-    justify-content: center;
-    align-items: center;
-    -webkit-tap-highlight-color: transparent;
-    transition: color 0.2s ease-in-out;
-    z-index: 100;
-    &:hover {
-      color: var(--first-color);
-      cursor: pointer;
-    }
-    &:active {
-      color: var(--first-color);
-    }
-  }
-  &-pagination {
-    //@include test();
-    width: 100px;
-    height: 20px;
-    align-self: flex-end;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    z-index: 101;
-    &-item {
-      //@include test();
-      //flex-basis: 0;
-      //flex-grow: 1;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: var(--first-color-dark);
-      opacity: 0.5;
-      transition: transform,opacity 0.5s var(--timing-fun-two);
-      &:hover {
-        transform: scale(1.3);
-        opacity: 1;
-      }
-      &.is-active {
-        opacity: 1;
-      }
-    }
-  }
+
   &-img {
     //@include test();
     position: absolute;
-    z-index: -80;
     top: 0;
     left: 0;
     width: 100%;
@@ -92,41 +40,22 @@
     justify-content: space-evenly;
     color: white;
     overflow-x: hidden;
+    transform: translate3d(0,0,0);
+    transition: all 1s ease;
     @media screen and(min-width: 850px){
       padding: var(--header-height) 120px 0 120px;
       justify-content: center;
       background-position: 50% 17%;
       background-size: 110%;
     }
-    &.item-0 {
-      background-color: var(--default-color);
-      background-image: url("../../assets/img/item-1.jpg");
-      z-index: 13;
+    &.is-active {
+      transform: translate3d(0,0,0);
     }
-    &.item-1 {
-      background-color: var(--default-color);
-      z-index: -13;
+    &.is-left {
+      transform: translate3d(-100%, 0, 0);
     }
-    &.item-2 {
-      background-color: var(--default-color);
-      // background-image: url("./img/mision.jpg");
-      z-index: -12;
-    }
-    &.item-3 {
-      background-color: var(--default-color);
-      // background-image: url("./img/vision.png");
-       z-index: -11;
-      // @media screen and (min-width: 850px){
-      //   background-position: 30% 75%;
-      // }
-    }
-    &.item-4 {
-      background-color: var(--default-color);
-      // background-image: url("./img/caracteristicas.jpg");
-       z-index: -20;
-      // @media screen and (min-width: 850px){
-      //   background-position: 0% 10%;
-      // }
+    &.is-right {
+      transform: translate3d(100%, 0, 0);
     }
   }
   &-title {
@@ -159,7 +88,6 @@
     text-decoration: none;
     position: relative;
     //display: block;
-    z-index: 950;
     width: 200px;
     padding: 0;
     overflow: hidden;
@@ -174,6 +102,7 @@
     border-style: solid;
     border-width: 2px;
     border-color: rgba(0,0,0,0);
+    z-index: 405;
     cursor: pointer;
     @media screen and(min-width: 850px){
       align-self: flex-start;
