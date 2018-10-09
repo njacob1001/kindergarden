@@ -1,0 +1,64 @@
+.Banner {
+  &-container {
+    box-sizing: content-box;
+    width: 100%;
+    height: auto;
+    background-color: var(--first-color);
+    text-align: center;
+    color: var(--default-color);
+  }
+
+  &-title {
+    font-size: var(--t2);
+    padding-top: 2rem;
+    box-sizing: content-box;
+  }
+  &-decoration {
+    box-sizing: content-box;
+    width: 80px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem auto 2rem auto;
+    &-item {
+      width: 10px;
+      height: 10px;
+      background-color: var(--second-color);
+
+    }
+  }
+  &-information {
+    font-size: var(--base-size);
+    line-height: 160%;
+    letter-spacing: 0.07rem;
+    margin: 0 auto;
+    max-width: 500px;
+
+  }
+
+  &-nextTitle {
+    margin-top: 0.8rem;
+    font-size: var(--t2);
+    padding-bottom: 1rem;
+  }
+}
+.Button-main {
+  display: inline-block;
+  background-color: var(--second-color);
+  text-decoration: none;
+  font-weight: 600;
+  padding: .5rem 3rem .5rem 3rem;
+  margin: 0.8rem auto;
+  box-sizing: content-box;
+  border-radius: 5px;
+  border: solid transparent 3px;
+  color: var(--default-color);
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--second-color-dark);
+  }
+  &:active {
+    border-color: var(--second-color);
+    background-color: var(--second-color);
+  }
+}

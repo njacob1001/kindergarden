@@ -1,0 +1,45 @@
+.Topics {
+  &-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 64em;
+    margin: 0 auto;
+  }
+  &-item {
+    //border: solid red 1px;
+    margin-top: 1rem;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      color: var(--second-color);
+    }
+    @media screen and (min-width: 850px){
+      width: 30%;
+      margin-top: 2rem;
+    }
+  }
+  &-img {
+    //border: solid black 1px;
+    display:inline-block;
+    width: 40%;
+    max-width: 100px;
+    min-width: 50px;
+  }
+  &-name {
+    margin-top: 0.2rem;
+    font-size: var(--base-size);
+    font-weight: 500;
+    @media screen and (min-width: 850px){
+      margin-top: 1rem;
+      font-weight: 600;
+
+    }
+  }
+
+}
+

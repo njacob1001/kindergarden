@@ -6,6 +6,7 @@
     height: 280px;
     position: relative;
     margin-top: var(--header-height);
+    overflow: hidden;
     @media screen and(min-width: 850px){
       height: 550px;
       margin-top: 0px;
@@ -39,14 +40,18 @@
     align-items: center;
     justify-content: space-evenly;
     color: white;
-    overflow-x: hidden;
+    overflow: hidden;
     transform: translate3d(0,0,0);
     transition: all 1s ease;
     @media screen and(min-width: 850px){
       padding: var(--header-height) 120px 0 120px;
       justify-content: center;
-      background-position: 50% 17%;
-      background-size: 110%;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: 120%;
+    }
+    @media screen and (min-width: 64em){
+      background-size: 105%;
     }
     &.is-active {
       transform: translate3d(0,0,0);
