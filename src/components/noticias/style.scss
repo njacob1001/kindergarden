@@ -5,9 +5,14 @@
     height: auto;
     overflow: hidden;
     margin: 0 auto;
+    & .News-title {
+      text-align: center;
+    }
   }
   &-container {
     width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
     @media screen and (min-width: 850px){
       display: flex;
       flex-flow: column wrap;
@@ -16,16 +21,14 @@
       max-height: 1200px;
     }
     @media screen and (min-width: 64em){
-      //max-height: 1000px;
+      max-height: 1000px;
     }
   }
   &-title {
-    display: inline-block;
     text-transform: uppercase;
     color: var(--first-color);
     font-size: var(--t1);
-    width: 50%;
-    margin: 1rem 2.5% 0 2.5%;
+    margin: 2rem auto 1rem auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

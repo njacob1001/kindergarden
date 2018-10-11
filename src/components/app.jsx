@@ -4,6 +4,7 @@ import HeaderBigLogo from './header-biglogo';
 import CoverSlider from './cover-slider';
 import TabsGrid from './content-tabs-grid';
 import PromotionalBanner from './promotional-banner';
+import PromotionalFormBanner from './promotional-banner/form';
 import Topics from './topics';
 import NewsCards from './noticias';
 
@@ -18,7 +19,7 @@ class App extends Component {
           <PromotionalBanner />
           <Topics />
           <NewsCards />
-          <PromotionalBanner />
+          <PromotionalFormBanner />
           <hr />
           <br />
           <br />

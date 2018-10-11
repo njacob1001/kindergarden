@@ -7,6 +7,15 @@
     position: relative;
     margin-top: var(--header-height);
     overflow: hidden;
+    & .Controller-slider {
+      opacity: 0;
+      @media screen and(min-width: 850px){
+        opacity: 1;
+      }
+    }
+    &:hover .Controller-slider {
+      opacity: 1;
+    }
     @media screen and(min-width: 850px){
       height: 550px;
       margin-top: 0px;
@@ -75,10 +84,10 @@
     //@include test();
     text-align: center;
     font-weight: 400;
-    font-size: var(--s1);
+    font-size: var(--base-size);
     width: 70%;
     letter-spacing: 0.075rem;
-    line-height: 0.9rem;
+    line-height: 150%;
     @media screen and (min-width: 850px){
       width: 600px;
       align-self: flex-start;
@@ -90,17 +99,16 @@
     }
   }
   &-button {
+
     text-decoration: none;
     position: relative;
     //display: block;
-    width: 200px;
+    width: 100px;
     padding: 0;
     overflow: hidden;
     border-width: 0;
     outline: none;
-    // box-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-    background-color: var(--first-color);
-    color: #ecf0f1;
+    color: var(--default-color);
     transition: background-color .3s linear;
     border-radius: 5px;
     box-sizing: content-box;
@@ -110,23 +118,34 @@
     z-index: 405;
     cursor: pointer;
     @media screen and(min-width: 850px){
+      width: 200px;
       align-self: flex-start;
+      background-color: var(--first-color);
     }
-    &:hover {
-      //background-color: lighten(#59CC42, 0.5);
-      background-color: var(--first-color-dark);
+    &:hover span {
+      color: var(--first-color);
+
+      @media screen and(min-width: 850px){
+        background-color: var(--first-color-dark);
+        color: var(--default-color);
+      }
     }
     &:focus {
       border-color: var(--first-color);
     }
     & span {
+      text-transform: uppercase;
       color: #ededed;
-      font-weight: 700;
+      font-weight: 600;
       text-align: center;
       display: block;
-      padding: 12px 24px;
+      padding: 5px 2px;
       z-index: 980;
       cursor: pointer;
+      transition: color 0.3s ease;
+      @media screen and (min-width: 850px){
+        padding: 12px 24px;
+      }
     }
   }
 }
