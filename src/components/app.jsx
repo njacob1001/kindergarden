@@ -7,6 +7,8 @@ import PromotionalBanner from './promotional-banner';
 import PromotionalFormBanner from './promotional-banner/form';
 import Topics from './topics';
 import NewsCards from './noticias';
+import ContactMapForm from './contact-map-form';
+import SocialIcons from './social-icons';
 
 class App extends Component {
   render() {
@@ -20,23 +22,8 @@ class App extends Component {
           <Topics />
           <NewsCards />
           <PromotionalFormBanner />
-          <hr />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+          <ContactMapForm />
+          <SocialIcons />
         </React.Fragment>
       </Router>
     );

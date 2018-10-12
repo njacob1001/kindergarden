@@ -1,0 +1,22 @@
+.Social {
+  &-container {
+    background-color: var(--default-color);
+    width: 100%;
+    padding: 2rem 0 4rem 0;
+    margin-top: 2rem;
+  }
+  &-icons {
+    margin: 0 auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 3rem;
+    & * {
+      transition: color 0.2s ease-out;
+    }
+    & *:hover {
+      color: var(--first-color);
+    }
+  }
+}

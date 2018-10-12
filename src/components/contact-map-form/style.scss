@@ -1,0 +1,139 @@
+.Contact {
+  &-container {
+    width: 100%;
+    max-width: 1600px;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+    @media screen and(min-width: 850px) {
+      text-align: left;
+    }
+  }
+  &-cols {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  &-col1 {
+    display: none;
+    @media screen and(min-width: 850px){
+      display: inline-block;
+      width: 48%;
+      overflow: hidden;
+    }
+  }
+  &-col2 {
+    width: 100%;
+    @media screen and(min-width: 850px){
+      width: 48%;
+    }
+  }
+  &-form {
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  &-input,&-textArea {
+    min-width: 200px;
+    max-width: 600px;
+    height: 2rem;
+    box-sizing: content-box;
+    padding: .2rem 1rem .2rem 1rem;
+    margin: 1rem 0 1rem 0;
+    background-color: var(--default-color);
+    //border: solid 1px red;
+    border: none;
+    outline: none;
+    font-family: var(--font-main);
+    box-shadow: 0px 0px 0px 2px rgba(0,0,0,0);
+    transition: box-shadow 0.3s ease-out;
+    border-radius: 4px;
+    &:focus {
+      outline: none;
+      box-shadow: 0px 0px 0px 2px var(--first-color);
+    }
+  }
+  &-textArea {
+    height: 150px;
+    max-height: 155px;
+    padding: 1rem;
+  }
+  &-button {
+    display: inline-block;
+    background-color: var(--first-color);
+    text-decoration: none;
+    font-weight: 600;
+    width: 30%;
+    max-width: 400px;
+    padding: .5rem 3rem .5rem 3rem;
+    margin: 0.8rem auto;
+    box-sizing: content-box;
+    border-radius: 5px;
+    border: solid transparent 3px;
+    color: var(--default-color);
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: var(--first-color-dark);
+    }
+    &:active {
+      border-color: var(--second-color);
+      background-color: var(--second-color);
+    }
+  }
+
+  &-title {
+    text-transform: uppercase;
+    color: var(--first-color);
+    font-size: var(--t2);
+    font-weight: 400px;
+    padding: 1rem;
+  }
+  &-decoration {
+    margin: 0 auto 1rem auto;
+    width: 100px;
+    height: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    @media screen and(min-width: 850px) {
+      margin: 0 0 1rem 1rem;
+    }
+    & div {
+      width: 16px;
+      height: 16px;
+      border-radius: 3px;
+    }
+    & div:nth-child(1) {
+      background-color: var(--first-color);
+    }
+    & div:nth-child(2) {
+      background-color: var(--second-color);
+    }
+    & div:nth-child(3) {
+      background-color: var(--third-color);
+    }
+  }
+  &-map {
+    width: 100%;
+    max-width: 700px;
+    height: 250px;
+    margin-bottom: 1rem;
+  }
+  &-message {
+    display: none;
+  }
+  &-info {
+    margin: 2rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+  }
+}
+
+#GoogleMap {
+  width: 100%;
+  height: 100%;
+}
