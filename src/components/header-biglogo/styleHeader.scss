@@ -18,11 +18,23 @@
     background-color: var(--first-color);
     height: var(--header-height);
     width: 100vw;
+    transform: translate3d(0,0,0);
     //max-height: var(--header-height);
     font-family: 'Libre Franklin';
     overflow: hidden;
     @media screen and(min-width: 850px){
+      transition: background-color 0.3s ease-out, transform 0.3s var(--timing-func-one);
       background-color: transparent;
+    }
+    &.is-down {
+      @media screen and(min-width: 850px){
+        background: rgba(10, 9, 26, 0.65);
+      }
+    }
+    &.is-hide {
+      @media screen and(min-width: 850px){
+        transform: translate3d(0,-100%,0);
+      }
     }
   }
   &-wrapper {
@@ -52,12 +64,10 @@
     z-index: 998;
     background-size: var(--logo-size);
     @media screen and (min-width: 850px){
-      //margin-left: 100px;
-      //@include test();
-      //background-position: 90% 0%;
-      margin-top: 10px;
+
+      /* margin-top: 10px;
       margin-left: 25px;
-      width: 170px;
+      width: 170px; */
     }
   }
   &-button {

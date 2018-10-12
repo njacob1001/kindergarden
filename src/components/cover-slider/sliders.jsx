@@ -16,7 +16,7 @@ const calculatePosition = (index, pos) => {
 const SlidersContent = ({ slider }) => data.map((item, index) => (
   <article
     key={index * 36}
-    className={`Slider-img ${calculatePosition(index, slider)}`}
+    className={`Slider-img ${calculatePosition(index, slider)} u-first-content`}
     style={{ backgroundImage: `url(${item.image})` }}
   >
     <div className="Slider-cover"></div>

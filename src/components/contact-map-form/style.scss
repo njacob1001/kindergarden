@@ -123,6 +123,9 @@
   }
   &-message {
     display: none;
+    @media screen and(min-width: 850px){
+      display: inline-block;
+    }
   }
   &-info {
     margin: 2rem 0;

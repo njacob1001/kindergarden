@@ -3,14 +3,26 @@ import { Link } from 'react-router-dom';
 import './styleHeader.scss';
 import data from './data';
 
+const d = document;
+let header;
+let firstContent;
+let firstContentHeight;
+let headerHeight;
+let scrollTopLimit;
+
 class HeaderBigLogo extends Component {
   constructor() {
     super();
     this.state = {
-      isOpen: false
+      isOpen: false,
+      top: '',
+      isHide: false
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.handleVisibility = this.handleVisibility.bind(this);
   }
+
 
   componentDidMount() {
     window.matchMedia('(min-width: 64em)').addListener(() => {
@@ -18,6 +30,32 @@ class HeaderBigLogo extends Component {
         isOpen: false
       });
     });
+
+    header = d.getElementById('Header');
+    firstContent = d.querySelector('.u-first-content');
+    firstContentHeight = window.getComputedStyle(firstContent, null)
+      .getPropertyValue('height').split('px')[0];
+    headerHeight = window.getComputedStyle(header, null)
+      .getPropertyValue('heght').split('px')[0];
+    scrollTopLimit = firstContentHeight - headerHeight;
+
+    d.addEventListener('DOMContentLoaded', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleVisibility() {
+
+  }
+  handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const newTop = scrollTop > scrollTopLimit ? 'is-down' : '';
+    const newIsHide = window.scrollY > this.prev;
+
+    this.setState({
+      top: newTop,
+      isHide: newIsHide
+    });
+    this.prev = window.scrollY;
   }
 
   handleClick(e) {
@@ -28,7 +66,7 @@ class HeaderBigLogo extends Component {
   render() {
     const items = this.props.items || data;
     return (
-      <div className="Header-container">
+      <div className={`Header-container ${this.state.top} ${this.state.isHide === true ? 'is-hide' : ''}`} id="Header">
         <nav className="Header-wrapper">
           <a href="#root" className="Header-logo"></a>
           <div className={`Header-panel ${this.state.isOpen ? 'is-active' : ''}`}>
