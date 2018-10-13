@@ -18,6 +18,11 @@
   }
 }
 .Infotab {
+  &-wrapper {
+    width: 100%;
+    min-width: 300px;
+    background-color: var(--default-color);
+  }
   &-container {
     --separation-items: 15px;
     --height-content: 35rem;
@@ -26,6 +31,7 @@
     width: 100%;
     max-width: 1600px;
     min-width: 300px;
+    margin: 0 auto;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 4rem 1fr;

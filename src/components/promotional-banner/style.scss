@@ -1,9 +1,15 @@
 .Banner {
+  &-wrapper {
+    width: 100%;
+    min-width: 200px;
+    background-color: var(--first-color);
+  }
   &-container {
     box-sizing: content-box;
     width: 100%;
     max-width: 1600px;
     height: auto;
+    margin: 0 auto;
     background-color: var(--first-color);
     text-align: center;
     color: var(--default-color);

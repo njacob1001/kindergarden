@@ -18,12 +18,12 @@
     background-color: var(--first-color);
     height: var(--header-height);
     width: 100vw;
-    transform: translate3d(0,0,0);
+    //transform: translate3d(0,0,0);
     //max-height: var(--header-height);
     font-family: 'Libre Franklin';
     overflow: hidden;
     @media screen and(min-width: 850px){
-      transition: background-color 0.3s ease-out, transform 0.3s var(--timing-func-one);
+      transition: background-color 0.3s ease-out, transform 0.3s var(--timing-fun-three);
       background-color: transparent;
     }
     &.is-down {

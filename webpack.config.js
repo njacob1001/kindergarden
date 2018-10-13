@@ -8,7 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const copyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
@@ -19,9 +18,21 @@ module.exports = {
   },
   output: {
     path: publicDir,
-    filename: '[name]-[contenthash].js', /* Agregar .[hash] */
+    filename: '[name].[contenthash].js', /* Agregar .[hash] */
     publicPath: './',
     sourceMapFilename: 'main.map'
+  },
+  optimization: {
+    runtimeChunk: 'single',
+     splitChunks: {
+       cacheGroups: {
+         vendor: {
+           test: /[\\/]node_modules[\\/]/,
+           name: 'vendors',
+           chunks: 'all'
+         }
+       }
+     }
   },
   devServer: {
     contentBase: publicDir,
@@ -73,7 +84,7 @@ module.exports = {
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name]-[contenthash].css'
+      filename: '[name].[contenthash].css'
 
     }),
     new OptimizeCssAssetsPlugin({
@@ -86,10 +97,10 @@ module.exports = {
       ])
     }),
     new HtmlWebpackPlugin({
-      title: 'Jacob Gonzalez',
+      title: 'Grimms',
       filename: 'index.html', /** insertar .[hash] */
       template: path.join(srcDir, 'template.html'),
-      description: 'Welcome to my personal web page',
+      description: 'Jardin infantil de alta calidad en Bogotá Colombia',
       favicon: './assets/img/favicon.ico',
       minify: {
         collapseWhitespace: true,
@@ -97,30 +108,27 @@ module.exports = {
       }
     }),
     new WebpackPwaManifest({
-      name: 'Jacob | making awesome websites',
-      short_name: 'Jacob',
-      description: 'My personal portfolio as web developer',
+      name: 'Grimms Kindergarden',
+      short_name: 'Grimms',
+      description: 'Jardin infantil de alta calidad en Bogotá Colombia',
       orientation: 'portrait',
       display: 'standalone',
       start_url: 'index.html?utm=homescreen',
       scope: './',
-      lang: 'en',
+      lang: 'es',
       background_color: '#24243E',
       theme_color: '#24243E',
       icons: [{
-        src: path.resolve('src/assets/img/jacob-icon.png'),
+        src: path.resolve('src/assets/img/logo.jpg'),
         sizes: [16, 32, 64, 96, 128, 192, 256, 384, 512, 1024],
-        type: 'img/png'
+        type: 'img/jpg'
       }],
       fingerprints: false
     }),
-    new copyWebpackPlugin([
-      /* { from: 'sw.js' }, */
-      { from: 'assets/img/og-image.jpg', to: 'assets/img/og-image.jpg' }
-    ]),
+    new webpack.HashedModuleIdsPlugin(),
     new SWPrecacheWebpackPlugin(
       {
-        cacheId: 'nombre-de-proyecto',
+        cacheId: 'grimms',
         dontCacheBustUrlsMatching: /\.\w{8}\./,
         filename: 'service-worker.js',
         minify: true,

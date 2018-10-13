@@ -20,7 +20,6 @@ class HeaderBigLogo extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-    this.handleVisibility = this.handleVisibility.bind(this);
   }
 
 
@@ -43,9 +42,6 @@ class HeaderBigLogo extends Component {
     window.addEventListener('scroll', this.handleScroll);
   }
 
-  handleVisibility() {
-
-  }
   handleScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const newTop = scrollTop > scrollTopLimit ? 'is-down' : '';
